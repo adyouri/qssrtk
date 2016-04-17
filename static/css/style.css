@@ -67,8 +67,11 @@ input:-moz-placeholder {
   color: #cccccc;
 }
 
-footer, #result {
+footer {
   height: 55px;
+}
+
+footer, #result {
   background: rgba(255, 255, 255, 0.1);
   font-size: 15px;
 }
