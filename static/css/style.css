@@ -4,6 +4,7 @@
 }
 
 body {
+  margin: 0;
   background: #63B47A;
   width: 100%;
   display: inline-block;
@@ -67,6 +68,7 @@ input:-moz-placeholder {
 }
 
 footer, #result {
+  height: 55px;
   background: rgba(255, 255, 255, 0.1);
   font-size: 15px;
 }
