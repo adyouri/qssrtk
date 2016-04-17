@@ -1,0 +1,10 @@
+Flask==0.10.1
+Jinja2==2.8
+gunicorn==19.4.5
+itsdangerous==0.24
+MarkupSafe==0.23
+Werkzeug==0.11.3
+Flask-SQLAlchemy==2.1
+SQLAlchemy==1.0.11
+psycopg2==2.6.1
+hashids==1.1.0
