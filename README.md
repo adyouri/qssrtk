@@ -19,10 +19,11 @@ A lightweight Url shortener script built with flask framework and the python lan
 
     pip install -r requirements.txt
 
-- Run the `setup.py` script | نفّذ سكريبت الإعداد
+- Run the `create_db.py` script | نفّذ سكربت إعداد قاعدة البيانات
 
-    python setup.py
+    python creat_db.py
 
 - Start the server | شغّل الخادوم
     python routes.py
+
 
