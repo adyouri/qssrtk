@@ -46,7 +46,7 @@ def sh():
         # Basic link checker
         if link != "" and not link.count(' ') >= 1 and not link.count('.') == 0:
             # Add link to the Database
-            if link[:4] != 'http':
+            if link[:4].lower() != 'http':
                 link = 'http://{}'.format(link)
             db.session.add(Url(url=link)) 
             db.session.commit()
