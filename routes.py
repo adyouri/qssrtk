@@ -19,10 +19,12 @@ from hashids import Hashids
 import os
 
 # Config
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))  
 app = Flask(__name__)
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db' 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+print app.config['SQLALCHEMY_DATABASE_URI']
 SALT = 'Hashids SALT GOES HERE'
 
 # Models
