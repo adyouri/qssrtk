@@ -11,3 +11,7 @@
 - Add statistics 
 
 - Login via social networks
+
+- Get title of the original page
+
+- Add Password to shortened link
