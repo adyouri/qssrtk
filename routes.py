@@ -65,7 +65,9 @@ def sh():
         else:
             return jsonify(**{'url_id':0, 'short_link':''})
 
-    return render_template('index.html', page='sh', short_link = 'qssrtk.herokuapp.com/kRa0')
+    return render_template('index.html',
+                           page='sh',
+                           short_link = 'qssrtk.herokuapp.com/kRa0')
 
 @app.route('/')
 def index():
