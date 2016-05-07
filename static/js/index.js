@@ -1,41 +1,42 @@
 // Send Http request
-function request(url,b,method,data,c){ 
-    c = new XMLHttpRequest;
-    c.open(method||'get',url);
-    c.onload = b;
-    c.send(data||null)
-    s = document.getElementById("result");
-    s.value = 'انتظر رجاء...'
+function send_request(url, b, method, data, c){ 
+    request = new XMLHttpRequest;
+    request.open(method||'get',url);
+    request.onload = b;
+    request.send(data||null)
+
+    result = document.getElementById("result");
+    result.value = 'انتظر رجاء...'
  }
 
 function callback(e){
-	s = document.getElementById("result");
+    result = document.getElementById("result");
     short_link = window.location.host + JSON.parse(this.response).short_link 
 
     // convert www.qssr.tk/jhFj => qssr.tk/jhFj
     if (window.location.host.substring(0, 3) == 'www'){
-        s.value = short_link.substring(4) 
+        result.value = short_link.substring(4) 
     }
     
     else {
-        s.value = short_link
+        result.value = short_link
     }
 }
 
 // On Change
 function change() {
-    t = document.getElementById("input").value;
-    request('sh?link=' + t, callback, 'post')
+    url = document.getElementById("input").value;
+    send_request('sh?link=' + url, callback, 'post')
 }
 
 // Copy to clipboard
 function cp() {
-	e = document.getElementById("result");
+	result = document.getElementById("result");
 	msg = document.getElementById("msg");
-	e.select();
+	result.select();
 	try {
-		var ok = document.execCommand('copy');
-		if(ok) msg.innerHTML = 'نُسخَ الرّابِط بنجاح!';
+		var copy = document.execCommand('copy');
+		if(copy) msg.innerHTML = 'نُسخَ الرّابِط بنجاح!';
 		else msg.innerHTML = 'هناك خطأ ما!';
 	}
 	catch(err) {
