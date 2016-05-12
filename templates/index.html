@@ -5,30 +5,33 @@
     <title>قصّرتك</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <script src="{{ url_for("static", filename="js/prefixfree.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="js/prefixfree.min.js") }}"></script>
   </head>
   <body>
     <header>
-<h1>قصّرتُك</h1>
-<h3> خدمة تقصير الروابط الأكثر بساطة </h3>
-</header>
-<div id='bg-box'>
-<input name="link" type='text' id='input' placeholder='ضع رابطك هنا لتقصيره' onchange='change()'>
-{% if page=="sh" %}
-  <input type='text' id='result' value='{{ short_link }}'>
-{% else %}
-  <input type='text' id='result' value='qssrtk.herokuapp.com/kRa0'>
-{% endif %}
-    <a id='cp' href='#' onclick='cp()'>انسخ</a>
-    <span id='msg' href='#'></span>
-</div>
-<footer>
-  <div id="rights">تصميم وتطوير، عبدالهادي الديوري</div>
-  <div style="clear:both"></div>
-  <img id="profile" src="{{ url_for("static", filename="img/profile.png") }}" alt="Abdelhadi Dyouri" /> 
-</footer>
+      <h1>قصّرتُك</h1>
+      <h3> خدمة تقصير الروابط الأكثر بساطة </h3>
+    </header>
 
-<script src="{{ url_for("static", filename="js/index.js") }}" >
-</script>
+    <div id='bg-box'>
+      <input name="link" type='text' id='input' placeholder='ضع رابطك هنا لتقصيره' onchange='change()'>
+      {% if page == "sh" %}
+          <input type='text' id='result' value='{{ short_link }}'>
+      {% else %}
+          <input type='text' id='result' value='qssrtk.herokuapp.com/kRa0'>
+      {% endif %}
+      <a id='cp' href='#' onclick='cp()'>انسخ</a>
+      <span id='msg' href='#'></span>
+    </div>
+
+    <footer>
+      <div id="rights">تصميم وتطوير، عبدالهادي الديوري</div>
+      <div style="clear:both"></div>
+      <img id="profile" src="{{ url_for("static", filename="img/profile.png") }}" alt="Abdelhadi Dyouri" /> 
+    </footer>
+
+    <script src="{{ url_for("static", filename="js/index.js") }}" >
+    </script>
+
   </body>
 </html>
