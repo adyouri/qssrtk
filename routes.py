@@ -99,6 +99,15 @@ def url(id):
     else:
         return render_template('index.html')
 
+@app.route('/register', methods=['POST'])
+def register():
+    username = request.form['username']
+    password = request.form['password']
+    email = request.form['email']
+    user = User(username, password, email)
+    db.session.add(user)
+    db.session.commit()
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
