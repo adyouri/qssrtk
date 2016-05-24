@@ -13,7 +13,7 @@
 ########################################################
 
 # Imports
-from flask import Flask, redirect, request, jsonify, render_template
+from flask import Flask, redirect, request, jsonify, render_template, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from hashids import Hashids
 import os
@@ -32,7 +32,7 @@ class Url(db.Model):
     __tablename__ = "urls"
     id = db.Column(db.Integer, primary_key=True) 
     url = db.Column(db.Text)
-    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, url):
         self.url = url
@@ -44,7 +44,7 @@ class User(db.Model):
     username = db.Column(db.String(50))
     password = db.Column(db.String(50))
     email = db.Column(db.String(150))
-    urls = relationship("Url", backref="user")
+    urls = db.relationship("Url", backref="user")
 
     def __init__(self, username, password):
         self.username = username
@@ -99,7 +99,7 @@ def url(id):
     else:
         return render_template('index.html')
 
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods = ['POST'])
 def register():
     username = request.form['username']
     password = request.form['password']
@@ -108,6 +108,16 @@ def register():
     db.session.add(user)
     db.session.commit()
 
+@app.route('/login', methods = ['POST'])
+def login():
+    form_username = request.form['username']
+    form_password = request.form['password']
+    user = User.query.filter_by(username=form_username).first()
+    if user:
+        if user.username == form_username and user.password == form_password:
+            session[logged_in] = True
+            flash('Logged in as {}'.format(user.username))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
