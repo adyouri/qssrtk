@@ -115,9 +115,18 @@ def login():
     user = User.query.filter_by(username=form_username).first()
     if user:
         if user.username == form_username and user.password == form_password:
-            session[logged_in] = True
+            session['logged_in'] = True
             flash('Logged in as {}'.format(user.username))
     return redirect(url_for('index'))
+
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('Logged out!')
+    return redirect(url_for('index'))
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
