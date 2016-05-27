@@ -119,13 +119,16 @@ def login():
             flash('Logged in as {}'.format(user.username))
     return redirect(url_for('index'))
 
+@app.route('/dashboard')
+def dashboard():
+        urls = Url.query.all()
+        return render_template('dashboard.html', urls = urls)
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('Logged out!')
     return redirect(url_for('index'))
-
 
 
 if __name__ == '__main__':
