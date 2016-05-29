@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>قصّرتك</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for("static", filename="js/prefixfree.min.js") }}"></script>
+  </head>
+  <body>
+    <header>
+      <h1>قصّرتُك</h1>
+      <h3> خدمة تقصير الروابط الأكثر بساطة </h3>
+    </header>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
