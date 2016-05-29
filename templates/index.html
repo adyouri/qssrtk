@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>قصّرتك</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for("static", filename="js/prefixfree.min.js") }}"></script>
-  </head>
-  <body>
-    <header>
-      <h1>قصّرتُك</h1>
-      <h3> خدمة تقصير الروابط الأكثر بساطة </h3>
-    </header>
-
+{% extends "base.html" %}
+{% block content %}
     <div id='bg-box'>
       <input name="link" type='text' id='input' placeholder='ضع رابطك هنا لتقصيره' onchange='change()'>
       {% if page == "sh" %}
@@ -33,5 +20,4 @@
     <script src="{{ url_for("static", filename="js/index.js") }}" >
     </script>
 
-  </body>
-</html>
+{% endblock %}
