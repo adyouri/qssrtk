@@ -1,8 +1,16 @@
 # To Do
 
+- Use Flask-script
+
+- Use Flask-login to handle login and logout routes
+
+-----------------------------------------
+
 - Costume URL shortcut
 
 - Sign up to save shortened links
+
+- Confirm user email
 
 - API
 
